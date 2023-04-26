@@ -1,9 +1,0 @@
-gcp_project_id  = " " # Name of project to create
-region          = " " # Default region to deploy resources
-zone          = " " # Default region to deploy resources
-folder_id       = " " # Folder to put this project
-org_id          = " " # ID of your Organization
-billing_account = " " # Billing ID to use 
-#gcp_json_key    = "path/to/your-gcp-json-key.json"
-tf_runner       = " " # Name of the service account created from script
-user_email      = " " # User to SSH into instance
