@@ -26,7 +26,7 @@ variable "host_project_name" {
   type        = string
   description = "The name of the vpc host project"
   default     = ""
-  }
+}
 
 variable "create_project_srv_accnt" {
   description = "Whether the default service account for the project shall be created"
@@ -112,35 +112,35 @@ variable "per_project_iam_roles" {
   type = map(object({
     members = list(string)
   }))
-} 
+}
 
 /* 
 CREATE CUSTOM NETWORK 
 */
 variable "create_custom_vpc" {
-  type = bool
+  type    = bool
   default = false
 }
 variable "vpc_name" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "auto_create_subnetworks" {
-    type = bool
-    default = true
+  type    = bool
+  default = true
 }
 
 variable "subnet_name" {
-  type=string
+  type    = string
   default = ""
 }
 variable "ip_cidr_range" {
-  type=string
+  type    = string
   default = ""
 }
 variable "subnet_region" {
-  type=string
+  type    = string
   default = ""
 }
 

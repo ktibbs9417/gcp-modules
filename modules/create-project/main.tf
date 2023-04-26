@@ -1,21 +1,21 @@
 locals {
   activate_apis = concat(var.activate_apis, var.activate_additional_apis)
-  project_id = var.project_id == "" ? (var.random_project_id ? random_id.project_id[0].b64_std : var.gcp_project_name) : var.project_id
+  project_id    = var.project_id == "" ? (var.random_project_id ? random_id.project_id[0].b64_std : var.gcp_project_name) : var.project_id
 }
 
 resource "random_id" "project_id" {
-  count = var.random_project_id ? 1 : 0
+  count       = var.random_project_id ? 1 : 0
   byte_length = 2
   prefix      = var.gcp_project_name
 }
 
 # Create project
 resource "google_project" "project" {
-  name            = var.gcp_project_name
-  project_id      = local.project_id
-  org_id          = var.org_id
-  folder_id       = var.folder_id
-  billing_account = var.billing_account
+  name                = var.gcp_project_name
+  project_id          = local.project_id
+  org_id              = var.org_id
+  folder_id           = var.folder_id
+  billing_account     = var.billing_account
   auto_create_network = var.auto_create_network
   labels = merge(var.labels, {
     project = var.gcp_project_name
